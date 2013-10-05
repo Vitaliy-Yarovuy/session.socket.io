@@ -9,9 +9,14 @@ function SessionSockets(io, sessionStore, cookieParser, key) {
   };
 
   this.of = function(namespace) {
+    var ns = io.of(namespace);
+
     return {
+      authorization: function() {
+        return ns.authorization.apply(ns, arguments)
+      },
       on: function(event, callback) {
-        return bind(event, callback, io.of(namespace));
+        return bind(event, callback, ns);
       }
     };
   };
