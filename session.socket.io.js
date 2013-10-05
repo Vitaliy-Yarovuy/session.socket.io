@@ -13,7 +13,8 @@ function SessionSockets(io, sessionStore, cookieParser, key) {
 
     return {
       authorization: function() {
-        return ns.authorization.apply(ns, arguments)
+        ns.authorization.apply(ns, arguments);
+        return this;
       },
       on: function(event, callback) {
         return bind(event, callback, ns);
