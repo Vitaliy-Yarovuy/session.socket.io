@@ -16,8 +16,12 @@ function SessionSockets(io, sessionStore, cookieParser, key) {
         ns.authorization.apply(ns, arguments);
         return this;
       },
+      emit: function() {
+        ns.emit.apply(ns, arguments);
+      },
       on: function(event, callback) {
-        return bind(event, callback, ns);
+        bind(event, callback, ns);
+        return this;
       }
     };
   };
