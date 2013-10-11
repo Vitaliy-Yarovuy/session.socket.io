@@ -12,6 +12,9 @@ function SessionSockets(io, sessionStore, cookieParser, key) {
     var ns = io.of(namespace);
 
     return {
+      get manager() {
+        return ns.manager
+      },
       authorization: function() {
         ns.authorization.apply(ns, arguments);
         return this;
