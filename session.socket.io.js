@@ -15,6 +15,9 @@ function SessionSockets(io, sessionStore, cookieParser, key) {
       get manager() {
         return ns.manager
       },
+      get sockets() {
+        return ns.sockets
+      },
       authorization: function() {
         ns.authorization.apply(ns, arguments);
         return this;
