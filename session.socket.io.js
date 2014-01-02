@@ -8,6 +8,11 @@ function SessionSockets(io, sessionStore, cookieParser, key) {
     return bind(event, callback, io.sockets);
   };
 
+  this.emit = function() {
+    io.sockets.emit.apply(io.sockets, arguments);
+  };
+      
+
   this.of = function(namespace) {
     var ns = io.of(namespace);
 
